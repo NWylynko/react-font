@@ -18,19 +18,7 @@ yarn add react-font
 
 ## Usage
 
-```tsx
-import React from 'react'
-
-import Font from 'react-font'
-
-export default function App() {
-  return (
-    <>
-      <Font family="Roboto"><p>Roboto<p/></Font>
-    </>
-  )
-}
-```
++++file: ./example/src/App.tsx
 
 ## License
 
