@@ -18,7 +18,7 @@ yarn add react-font
 
 ## Usage
 
-+++file: ./example/App.tsx
++++file: ./example/src/App.tsx
 
 ## License
 
