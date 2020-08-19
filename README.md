@@ -1,27 +1,34 @@
 # react-font
 
-> Simple components to easily use custom fonts for text in react
+<img src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/><img src="https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white"/>
 
-[![NPM](https://img.shields.io/npm/v/react-font.svg)](https://www.npmjs.com/package/react-font) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+Simple components to easily use custom fonts for text in react
+
+[![NPM](https://nodei.co/npm/react-font.png)](https://www.npmjs.com/package/react-font)
 
 ## Install
 
 ```bash
-npm install --save react-font
+npm i react-font
+```
+
+```bash
+yarn add react-font
 ```
 
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'react-font'
-import 'react-font/dist/index.css'
+import Font from 'react-font'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export default function App() {
+  return (
+    <>
+      <Font family="Roboto"><p>Roboto<p/></Font>
+    </>
+  )
 }
 ```
 
