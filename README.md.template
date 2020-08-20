@@ -18,7 +18,10 @@ yarn add react-font
 
 ## Usage
 
-+++file: ./example/src/App.tsx
+Apply any font easily
++++file: ./example/src/Example.tsx
+Supports italics and font weight
++++file: ./example/src/Roboto.tsx
 
 ## License
 

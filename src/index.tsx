@@ -5,7 +5,7 @@ interface Props {
   family: string
   weight?: number
   italic?: boolean
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
 
 const Font = ({ family, weight, italic, children }: Props): JSX.Element => {
@@ -25,12 +25,13 @@ const Font = ({ family, weight, italic, children }: Props): JSX.Element => {
     }
 
     setUrl(encodedURL)
+    console.log(encodedURL)
   }, [])
 
   return (
     <div
       style={{
-        fontFamily: family,
+        fontFamily: `'${family}'`,
         fontStyle: italic ? 'italic' : undefined,
         fontWeight: weight
       }}

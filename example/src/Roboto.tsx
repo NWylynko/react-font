@@ -1,8 +1,7 @@
 import React from 'react'
-
 import Font from 'react-font'
 
-const App = () => {
+const RobotoExample = () => {
   return (
     <>
       <Font family='Roboto'>
@@ -21,4 +20,4 @@ const App = () => {
   )
 }
 
-export default App
+export default RobotoExample
