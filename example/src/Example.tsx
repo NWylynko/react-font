@@ -1,5 +1,5 @@
 import React from 'react'
-import Font from 'react-font'
+import Font, {Text} from 'react-font'
 
 const Example = () => {
   return (
@@ -13,9 +13,9 @@ const Example = () => {
           <p>Either wrap a large portion of the app in a Font or just use the font where you want</p>
         </Font>
         <p>No hassle with putting the link in the head tag or importing with css</p>
-        <Font family='Monoton'>
-          <p style={{ fontSize: 48, margin: 0 }}>Super simple :)</p>
-        </Font>
+        <Text family='Monoton' style={{ fontSize: 48, margin: 0 }}>
+          Super simple :)
+        </Text>
       </Font>
     </>
   )
