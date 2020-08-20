@@ -7,13 +7,10 @@ interface Props extends FontProps {
 }
 
 const Font = (props: Props): JSX.Element => {
-
   const { children } = props
 
   return (
-    <div
-      style={styleGen(props)}
-    >
+    <div style={styleGen(props)}>
       <FontProvider {...props} />
       {children}
     </div>
@@ -25,7 +22,13 @@ interface TextProps extends FontProps {
   provider?: string
 }
 
-export const Text = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> & TextProps): JSX.Element => {
+export const Text = (
+  props: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLParagraphElement>,
+    HTMLParagraphElement
+  > &
+    TextProps
+): JSX.Element => {
   return (
     <p
       {...{ ...props, family: undefined, italic: undefined, weight: undefined }} // pass props but remove font props
@@ -33,7 +36,8 @@ export const Text = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLPar
     >
       <FontProvider {...props} />
       {props.children}
-    </p>)
+    </p>
+  )
 }
 
 interface ProviderProps extends FontProps {
@@ -43,7 +47,13 @@ interface ProviderProps extends FontProps {
 const FontProvider = (props: ProviderProps): JSX.Element | null => {
   const provider = props.provider || 'google'
   if (provider === 'google') {
-    return <GoogleFont family={props.family} italic={props.italic} weight={props.weight} />
+    return (
+      <GoogleFont
+        family={props.family}
+        italic={props.italic}
+        weight={props.weight}
+      />
+    )
   }
   return null
 }
@@ -54,7 +64,11 @@ interface FontProps {
   italic?: boolean
 }
 
-const GoogleFont = ({ family, weight, italic }: FontProps): JSX.Element | null => {
+const GoogleFont = ({
+  family,
+  weight,
+  italic
+}: FontProps): JSX.Element | null => {
   const [url, setUrl] = useState<string>()
 
   useEffect(() => {
