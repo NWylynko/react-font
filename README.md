@@ -6,6 +6,8 @@ Simple components to easily use custom fonts for text in react
 
 [![NPM](https://nodei.co/npm/react-font.png)](https://www.npmjs.com/package/react-font)
 
+Currently only supports [google fonts](https://fonts.google.com/).
+
 ## Install
 
 ```bash
