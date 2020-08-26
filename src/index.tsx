@@ -85,7 +85,6 @@ const GoogleFont = ({
     }
 
     setUrl(encodedURL)
-    console.log(encodedURL)
   }, [])
 
   if (!url) {
