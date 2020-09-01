@@ -22,66 +22,25 @@ yarn add react-font
 
 Apply any font easily
 
-<!-- add-file: ./example/src/Example.tsx -->
-``` tsx
-import React from 'react'
-import Font, {Text} from 'react-font'
-
-const Example = () => {
-  return (
-    <>
-      <Font family='Viga'>
-        <Font family='Ultra'>
-          <h3>Easily apply fonts</h3>
-        </Font>
-        <Font family='Press Start 2P'>
-          <p>Use any font from google fonts with ease</p>
-          <p>Either wrap a large portion of the app in a Font or just use the font where you want</p>
-        </Font>
-        <p>No hassle with putting the link in the head tag or importing with css</p>
-        <Text family='Monoton' style={{ fontSize: 48, margin: 0 }}>
-          Super simple :)
-        </Text>
-      </Font>
-    </>
-  )
-}
-
-export default Example
-
-```
-
+<!-- add-file: ./example/src/Example.jsx -->
+<!-- markdown-code-runner
+  {
+    "dependencies": [
+      "react-font"
+    ]
+  }
+-->
 
 Supports italics and font weight
 
-<!-- add-file: ./example/src/Roboto.tsx -->
-``` tsx
-import React from 'react'
-import Font, {Text} from 'react-font'
-
-const RobotoExample = () => {
-  return (
-    <>
-      <Font family='Roboto'>
-        <p>Roboto :)</p>
-      </Font>
-      <Text family='Roboto' italic>
-        Roboto Italic :/
-      </Text>
-      <Font family='Roboto' weight={700}>
-        <p>Roboto Bold :|</p>
-      </Font>
-      <Text family='Roboto' italic weight={700}>
-        Roboto Italic Bold ;)
-      </Text>
-    </>
-  )
-}
-
-export default RobotoExample
-
-```
-
+<!-- add-file: ./example/src/Roboto.jsx -->
+<!-- markdown-code-runner
+  {
+    "dependencies": [
+      "react-font"
+    ]
+  }
+-->
 
 ## License
 
