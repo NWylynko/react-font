@@ -13,7 +13,7 @@ const Example = () => {
           <p>Either wrap a large portion of the app in a Font or just use the font where you want</p>
         </Font>
         <p>No hassle with putting the link in the head tag or importing with css</p>
-        <Text family='Monoton' style={{ fontSize: 48, margin: 0 }}>
+        <Text family='Monoton' style={{ fontSize: 50, margin: 0 }}>
           Super simple :)
         </Text>
       </Font>
