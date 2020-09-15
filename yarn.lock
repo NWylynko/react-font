@@ -1856,13 +1856,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-helmet@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.0.tgz#af586ed685f4905e2adc7462d1d65ace52beee7a"
-  integrity sha512-PYRoU1XJFOzQ3BHvWL1T8iDNbRjdMDJMT5hFmZKGbsq09kbSqJy61uwEpTrbTNWDopVphUT34zUSVLK9pjsgYQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*", "@types/react@^16.9.27":
   version "16.9.46"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.46.tgz#f0326cd7adceda74148baa9bff6e918632f5069e"
@@ -1905,6 +1898,11 @@
     "@types/react-dom" "*"
     "@types/testing-library__dom" "*"
     pretty-format "^25.1.0"
+
+"@types/webfontloader@^1.6.32":
+  version "1.6.32"
+  resolved "https://registry.yarnpkg.com/@types/webfontloader/-/webfontloader-1.6.32.tgz#8a02698b7a07a9f2cc8e34d7223dc5d59ccff77a"
+  integrity sha512-l83V/2iHvBTIlKUM1+UlabS/Jd65HVfKmqS+zPhwDlgldPtd5ujPDt0Y1es19xLWcN8NC3wwSTd71Qxbst+Kpw==
 
 "@types/yargs-parser@*":
   version "15.0.0"
@@ -9460,21 +9458,6 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
-react-fast-compare@^3.1.1:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
-  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
-
-react-helmet@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
-  integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
-  dependencies:
-    object-assign "^4.1.1"
-    prop-types "^15.7.2"
-    react-fast-compare "^3.1.1"
-    react-side-effect "^2.1.0"
-
 react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -9539,11 +9522,6 @@ react-scripts@^3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
-
-react-side-effect@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
-  integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
 react@^16.13.1:
   version "16.13.1"
@@ -11477,6 +11455,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webfontloader@^1.6.28:
+  version "1.6.28"
+  resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
+  integrity sha1-23hhKSU8tujq5UwvsF+HCvZnW64=
 
 webidl-conversions@^4.0.2:
   version "4.0.2"

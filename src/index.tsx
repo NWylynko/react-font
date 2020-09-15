@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { Helmet } from 'react-helmet'
+import React, { useEffect } from 'react'
+import WebFont from 'webfontloader'
 
-interface Props extends FontProps {
+interface Props extends LoaderProps {
   children: JSX.Element | JSX.Element[]
-  provider?: string
 }
 
 const Font = (props: Props): JSX.Element => {
-  const { children } = props
-
   return (
     <div style={styleGen(props)}>
-      <FontProvider {...props} />
-      {children}
+      <FontLoader {...props} />
+      {props.children}
     </div>
   )
 }
 
-interface TextProps extends FontProps {
+interface TextProps extends LoaderProps {
   children: string
-  provider?: string
 }
 
 export const Text = (
@@ -31,71 +27,97 @@ export const Text = (
 ): JSX.Element => {
   return (
     <p
-      {...{ ...props, family: undefined, italic: undefined, weight: undefined }} // pass props but remove font props
+      {...{
+        ...Object.keys(props).reduce((object, key) => {
+          if (
+            ![
+              'family',
+              'italic',
+              'weight',
+              'onLoad',
+              'onError',
+              'onAllLoad',
+              'onAllError'
+            ].includes(key)
+          ) {
+            object[key] = props[key]
+          }
+          return object
+        }, {})
+      }} // pass props but remove font props
       style={{ ...styleGen(props), ...props.style }} // combine the font style and any custom style from props
     >
-      <FontProvider {...props} />
+      <FontLoader {...props} text={props.children} />
       {props.children}
     </p>
   )
 }
 
-interface ProviderProps extends FontProps {
+interface LoaderProps extends FontProps {
   provider?: string
+  onLoad: (family: string, style: string) => void
+  onError: (family: string, style: string) => void
+  onAllLoad: () => void
+  onAllError: () => void
+  text?: string
 }
 
-const FontProvider = (props: ProviderProps): JSX.Element | null => {
-  const provider = props.provider || 'google'
-  if (provider === 'google') {
-    return (
-      <GoogleFont
-        family={props.family}
-        italic={props.italic}
-        weight={props.weight}
-      />
-    )
-  }
+export const FontLoader = ({
+  family,
+  weight = 400,
+  italic = false,
+  provider = 'google',
+  onLoad = () => {},
+  onError = () => {},
+  onAllLoad = () => {},
+  onAllError = () => {},
+  text = undefined
+}: LoaderProps): JSX.Element | null => {
+  useEffect(() => {
+    const WebFontConfig: WebFont.Config = {
+      classes: false,
+      fontactive: onLoad,
+      fontinactive: onError,
+      active: onAllLoad,
+      inactive: onAllError
+    }
+
+    if (provider === 'google') {
+      const fontFamily = GoogleFont({
+        family,
+        weight,
+        italic
+      })
+      WebFontConfig.google = {
+        families: [fontFamily],
+        text
+      }
+    }
+
+    WebFont.load(WebFontConfig)
+  }, [family, weight, italic, provider, onLoad, onError])
+
   return null
+}
+
+const GoogleFont = ({ family, weight = 400, italic = false }: FontProps) => {
+  let encodedURL = encodeURIComponent(family)
+
+  if (weight !== 400 && italic) {
+    encodedURL += `:bi`
+  } else if (weight !== 400) {
+    encodedURL += `:${weight}`
+  } else if (italic) {
+    encodedURL += `:i`
+  }
+
+  return encodedURL
 }
 
 interface FontProps {
   family: string
   weight?: number
   italic?: boolean
-}
-
-const GoogleFont = ({
-  family,
-  weight,
-  italic
-}: FontProps): JSX.Element | null => {
-  const [url, setUrl] = useState<string>()
-
-  useEffect(() => {
-    let encodedURL = 'https://fonts.googleapis.com/css2?'
-
-    encodedURL += `family=${encodeURIComponent(family)}`
-
-    if (weight && italic) {
-      encodedURL += `:ital,wght@1,${weight}`
-    } else if (weight) {
-      encodedURL += `:wght@${weight}`
-    } else if (italic) {
-      encodedURL += `:ital@1`
-    }
-
-    setUrl(encodedURL)
-  }, [])
-
-  if (!url) {
-    return null
-  }
-
-  return (
-    <Helmet>
-      <link href={url} rel='stylesheet' />
-    </Helmet>
-  )
 }
 
 const styleGen = ({ family, italic, weight }: FontProps) => {
