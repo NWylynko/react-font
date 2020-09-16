@@ -55,10 +55,10 @@ export const Text = (
 
 interface LoaderProps extends FontProps {
   provider?: string
-  onLoad: (family: string, style: string) => void
-  onError: (family: string, style: string) => void
-  onAllLoad: () => void
-  onAllError: () => void
+  onLoad?: (family: string, style: string) => void
+  onError?: (family: string, style: string) => void
+  onAllLoad?: () => void
+  onAllError?: () => void
   text?: string
 }
 
@@ -91,6 +91,10 @@ export const FontLoader = ({
       WebFontConfig.google = {
         families: [fontFamily],
         text
+      }
+    } else if (provider === 'local') {
+      WebFontConfig.custom = {
+        families: [family]
       }
     }
 
